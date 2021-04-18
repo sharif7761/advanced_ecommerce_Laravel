@@ -21,9 +21,6 @@
 
 <div class="super_container">
 
-    <!-- Header -->
-
-    <header class="header">
 
         <!-- Top Bar -->
 
