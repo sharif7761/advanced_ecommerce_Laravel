@@ -28,3 +28,4 @@ Route::get('admin/logout', 'AdminController@logout')->name('admin.logout');
 //category
 Route::get('admin/categories', 'Admin\Category\CategoryController@categories')->name('admin.categories');
 Route::post('admin/store/category', 'Admin\Category\CategoryController@storeCategory')->name('store.category');
+Route::get('delete/category/{id}', 'Admin\Category\CategoryController@deleteCategory');
