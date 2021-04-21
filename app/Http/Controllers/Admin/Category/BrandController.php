@@ -75,7 +75,6 @@ class BrandController extends Controller
         $brand = Brand::find($id);
         $brand->brand_name = $request->brand_name;
         $logo = $request->file('brand_logo');
-        //dd($request->all());
         if($logo) {
             $current_logo = $brand->brand_logo;
             unlink($current_logo);
