@@ -39,5 +39,15 @@ class SubcategoryController extends Controller
         return back()->with($notification);
     }
 
+    public function deleteSubcategory($id) {
+        $subcategory = Subcategory::find($id);
+        $subcategory->delete();
+        $notification=array(
+            'messege'=>'Subcategory deleted successfully',
+            'alert-type'=>'success'
+        );
+        return back()->with($notification);
+    }
+
 
 }
