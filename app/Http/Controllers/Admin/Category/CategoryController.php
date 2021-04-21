@@ -15,8 +15,8 @@ class CategoryController extends Controller
     }
 
     public function categories() {
-        //$category = Category::all();
-        return view('admin.category.categories');
+        $categories = Category::all();
+        return view('admin.category.categories', compact('categories'));
 }
 
     public function storeCategory(Request $request) {
@@ -26,7 +26,11 @@ class CategoryController extends Controller
 
 //        $data = array();
 //        $data['category_name'] = $request->category_name;
+//        $data['created_at'] = \Carbon\Carbon::now();
+//        $data['updated_at'] = \Carbon\Carbon::now();
 //        DB::table('categories')->insert($data);
+
+
 
         $category = new Category();
         $category->category_name = $request->category_name;
@@ -36,7 +40,7 @@ class CategoryController extends Controller
             'messege'=>'Category added successfully',
             'alert-type'=>'success'
         );
-                       return Redirect()->route('admin.categories')->with($notification);
+        return Redirect()->route('admin.categories')->with($notification);
 
     }
 }

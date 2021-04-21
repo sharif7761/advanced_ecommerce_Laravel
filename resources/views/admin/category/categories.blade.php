@@ -9,26 +9,38 @@
                 <a href="" class="btn btn-sm btn-warning float-right" data-toggle="modal" data-target="#modaldemo3">Add Category</a>
             </div><!-- sl-page-title -->
 
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <div class="card pd-20 pd-sm-40">
                 <h6 class="card-body-title">Category List</h6>
                 <div class="table-wrapper">
                     <table id="datatable1" class="table display responsive nowrap">
                         <thead>
                         <tr>
-                            <th class="wd-15p">ID</th>
+                            <th class="wd-15p">#</th>
                             <th class="wd-15p">Category name</th>
                             <th class="wd-20p">Action</th>
                         </tr>
                         </thead>
                         <tbody>
+                        @foreach($categories as $key => $category)
                         <tr>
-                            <td>Tiger</td>
-                            <td>Nixon</td>
+                            <td>{{ $key + 1 }}</td>
+                            <td>{{ $category->category_name }}</td>
                             <td>
                                 <a href="" class="btn btn-sm btn-info">Edit</a>
                                 <a href="" class="btn btn-sm btn-danger" id="delete">Delete</a>
                             </td>
                         </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div><!-- table-wrapper -->
