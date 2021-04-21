@@ -47,4 +47,18 @@ class BrandController extends Controller
         );
         return back()->with($notification);
     }
+
+    public function deleteBrand($id) {
+        $brand = Brand::find($id);
+        $logo = $brand->brand_logo;
+        unlink($logo);
+        $brand->delete();
+
+        $notification=array(
+            'messege'=>'Brand deleted successfully',
+            'alert-type'=>'success'
+        );
+        return back()->with($notification);
+
+    }
 }
