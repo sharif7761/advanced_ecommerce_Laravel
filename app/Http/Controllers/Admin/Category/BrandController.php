@@ -1,10 +1,50 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\Category;
 
+use App\Http\Controllers\Controller;
+use App\Models\Admin\Brand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BrandController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
+    public function brands() {
+        $brands = Brand::all();
+        return view('admin.brand.brands', compact('brands'));
+    }
+
+    public function storeBrand (Request $request) {
+        $validateData = $request->validate([
+            'brand_name' => 'required | unique:brands|max:255',
+        ]);
+
+        $brand = new Brand();
+        $brand->brand_name = $request->brand_name;
+        $logo = $request->file('brand_logo');
+        if($logo) {
+            $logo_name = date('dmy_H_s_i');
+            $ext = strtolower($logo->getClientOriginalExtension());
+            $logo_full_name = $logo_name.'.'.$ext;
+            $upload_path = 'media/brand/';
+            $logo_url = $upload_path.$logo_full_name;
+            $success = $logo->move($upload_path, $logo_full_name);
+
+            $brand->brand_logo = $logo_url;
+
+        }
+
+        $brand->save();
+
+        $notification=array(
+            'messege'=>'Brand Added successfully',
+            'alert-type'=>'success'
+        );
+        return back()->with($notification);
+    }
 }
