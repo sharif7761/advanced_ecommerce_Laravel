@@ -49,5 +49,30 @@ class SubcategoryController extends Controller
         return back()->with($notification);
     }
 
+    public function editSubcategory($id) {
+        $subcategory = Subcategory::find($id);
+        $categories = Category::all();
+        return view('admin.subcategory.edit_subcategory', compact('subcategory', 'categories'));
+    }
+
+    public function updateSubcategory(Request $request, $id){
+        $validateData = $request->validate([
+            'subcategory_name' => 'required|unique:subcategories|max:255',
+            'category_id' => 'required'
+        ]);
+
+        $subcategory = Subcategory::find($id);
+        $subcategory->subcategory_name = $request->subcategory_name;
+        $subcategory->category_id = $request->category_id;
+        $subcategory->save();
+
+        $notification=array(
+            'messege'=>'Subcategory Updated successfully',
+            'alert-type'=>'success'
+        );
+        return redirect()->route('admin.subcategories')->with($notification);
+    }
+
+
 
 }

@@ -21,16 +21,25 @@
             <div class="card pd-20 pd-sm-40">
                 <h6 class="card-body-title">Update Category</h6>
                 <div class="table-wrapper">
-                    <form method="post" action="{{ route('update.category', $category->id) }}">
+                    <form method="post" action="{{ route('update.subcategory', $subcategory->id) }}">
                         @csrf
                         <div class="modal-body pd-20">
                             <div class="form-group">
-                                <label for="category_name">Category Name</label>
-                                <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Enter Category Name" value="{{ $category->category_name }}">
+                                <label for="subcategory_name">Sub-Category Name</label>
+                                <input type="text" class="form-control" id="subcategory_name" name="subcategory_name" placeholder="Enter Sub-Category Name" value="{{ $subcategory->subcategory_name }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="category_id">Category Name</label>
+                                <select name="category_id" class="form-control">
+                                    <option value="{{ $subcategory->category->id }}" selected hidden>{{ $subcategory->category->category_name }}</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div><!-- modal-body -->
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-info pd-x-20">Update Category</button>
+                            <button type="submit" class="btn btn-info pd-x-20">Update Subcategory</button>
                         </div>
                     </form>
                 </div><!-- table-wrapper -->
