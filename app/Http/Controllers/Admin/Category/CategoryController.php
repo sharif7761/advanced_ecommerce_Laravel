@@ -55,4 +55,24 @@ class CategoryController extends Controller
         return back()->with($notification);
 
     }
+
+    public function editCategory($id) {
+        $category = Category::find($id);
+        return view('admin.category.edit_category', compact('category'));
+    }
+
+    public function updateCategory($id, Request $request) {
+        $validateData = $request->validate([
+            'category_name' => 'required | unique:categories|max:255'
+        ]);
+        $category = Category::find($id);
+        $category->category_name = $request->category_name;
+        $category->save();
+
+        $notification=array(
+            'messege'=>'Category updated successfully',
+            'alert-type'=>'success'
+        );
+        return Redirect()->route('admin.categories')->with($notification);
+    }
 }

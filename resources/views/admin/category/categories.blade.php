@@ -36,7 +36,7 @@
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $category->category_name }}</td>
                             <td>
-                                <a href="" class="btn btn-sm btn-info">Edit</a>
+                                <a href="{{ route('edit.category', $category->id) }}" class="btn btn-sm btn-info">Edit</a>
                                 <a href="{{ url('delete/category/'.$category->id) }}" class="btn btn-sm btn-danger" id="delete">Delete</a>
                             </td>
                         </tr>
