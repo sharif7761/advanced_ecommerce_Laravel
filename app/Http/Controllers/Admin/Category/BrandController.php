@@ -61,4 +61,42 @@ class BrandController extends Controller
         return back()->with($notification);
 
     }
+
+    public function editBrand($id) {
+        $brand = Brand::find($id);
+        return view('admin.brand.edit_brand', compact('brand'));
+    }
+
+    public function updateBrand(Request $request, $id) {
+        $validateData = $request->validate([
+            'brand_name' => 'required|unique:brands|max:255',
+        ]);
+
+        $brand = Brand::find($id);
+        $brand->brand_name = $request->brand_name;
+        $logo = $request->file('brand_logo');
+        //dd($request->all());
+        if($logo) {
+            $current_logo = $brand->brand_logo;
+            unlink($current_logo);
+
+            $logo_name = date('dmy_H_s_i');
+            $ext = strtolower($logo->getClientOriginalExtension());
+            $logo_full_name = $logo_name.'.'.$ext;
+            $upload_path = 'media/brand/';
+            $logo_url = $upload_path.$logo_full_name;
+            $success = $logo->move($upload_path, $logo_full_name);
+
+            $brand->brand_logo = $logo_url;
+
+        }
+
+        $brand->save();
+
+        $notification=array(
+            'messege'=>'Brand updated successfully',
+            'alert-type'=>'success'
+        );
+        return back()->with($notification);
+    }
 }

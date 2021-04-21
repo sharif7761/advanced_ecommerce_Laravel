@@ -37,5 +37,5 @@ Route::post('admin/update/category/{id}', 'Admin\Category\CategoryController@upd
 Route::get('admin/brands', 'Admin\Category\BrandController@brands')->name('admin.brands');
 Route::post('admin/store/brand', 'Admin\Category\BrandController@storeBrand')->name('store.brand');
 Route::get('delete/brand/{id}', 'Admin\Category\BrandController@deleteBrand')->name('delete.brand');
-Route::get('edit/category/{id}', 'Admin\Category\CategoryController@editCategory')->name('edit.category');
-Route::post('admin/update/category/{id}', 'Admin\Category\CategoryController@updateCategory')->name('update.category');
+Route::get('edit/brand/{id}', 'Admin\Category\BrandController@editBrand')->name('edit.brand');
+Route::post('admin/update/brand/{id}', 'Admin\Category\BrandController@updateBrand')->name('update.brand');
