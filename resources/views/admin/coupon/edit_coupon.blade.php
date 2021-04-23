@@ -5,7 +5,7 @@
     <div class="sl-mainpanel">
         <div class="sl-pagebody">
             <div class="sl-page-title">
-                <label>Update Category</label>
+                <label>Update Coupon</label>
             </div><!-- sl-page-title -->
 
             @if ($errors->any())
