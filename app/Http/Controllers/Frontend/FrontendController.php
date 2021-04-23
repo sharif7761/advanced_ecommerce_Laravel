@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
-    public function storeNewsletter(Request $request) {
+    public function subscribeNewsletter(Request $request) {
         $validateData = $request->validate([
             'email' => 'required|unique:newsletters|max:255|email',
         ]);
@@ -18,18 +18,7 @@ class FrontendController extends Controller
         $newsletter->save();
 
         $notification=array(
-            'messege'=>'Newsletter Added successfully',
-            'alert-type'=>'success'
-        );
-        return back()->with($notification);
-    }
-
-    public function deleteNewsletter($email) {
-        $newsletter = Newsletter::find($email);
-        return $newsletter;
-        $coupon->delete();
-        $notification=array(
-            'messege'=>'Coupon deleted successfully',
+            'messege'=>'Thank you for subscribing',
             'alert-type'=>'success'
         );
         return back()->with($notification);

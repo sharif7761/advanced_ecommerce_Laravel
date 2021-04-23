@@ -58,6 +58,7 @@ Route::post('admin/update/coupon/{id}', 'Admin\Coupon\CouponController@updateCou
 //Newsletter
 Route::get('admin/newsletters', 'Admin\Newsletter\NewsletterController@newsletters')->name('admin.newsletters');
 Route::get('delete/newsletter/{id}', 'Admin\Newsletter\NewsletterController@deleteNewsletter')->name('delete.newsletter');;
+Route::post('admin/store/newsletter', 'Admin\Newsletter\NewsletterController@storeNewsletter')->name('store.newsletter');
 
-Route::post('admin/store/newsletter', 'Frontend\FrontendController@storeNewsletter')->name('store.newsletter');
+Route::post('subscribe/newsletter', 'Frontend\FrontendController@subscribeNewsletter')->name('subscribe.newsletter');
 

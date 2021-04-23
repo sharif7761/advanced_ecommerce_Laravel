@@ -19,6 +19,22 @@ class NewsletterController extends Controller
         return view('admin.newsletter.newsletters', compact('newsletters'));
     }
 
+    public function storeNewsletter(Request $request) {
+        $validateData = $request->validate([
+            'email' => 'required|unique:newsletters|max:255|email',
+        ]);
+
+        $newsletter = new Newsletter();
+        $newsletter->email = $request->email;
+        $newsletter->save();
+
+        $notification=array(
+            'messege'=>'Newsletter Added Successfully',
+            'alert-type'=>'success'
+        );
+        return back()->with($notification);
+    }
+
     public function deleteNewsletter($id) {
         $newsletter = Newsletter::find($id);
         $newsletter->delete();
