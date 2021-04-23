@@ -41,10 +41,14 @@
     <link href="{{asset('backend/lib/datatables/jquery.dataTables.css')}}" rel="stylesheet">
     <link href="{{asset('backend/lib/select2/css/select2.min.css')}}" rel="stylesheet">
 
+    <link href="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 
     <!-- Starlight CSS -->
     <link rel="stylesheet" href="{{asset('backend/css/starlight.css')}}">
+    <link href="{{asset('backend//lib/summernote/summernote-bs4.css')}}" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -93,8 +97,8 @@
             </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-            <li class="nav-item"><a href="table-basic.html" class="nav-link">Add Product</a></li>
-            <li class="nav-item"><a href="table-datatable.html" class="nav-link">All Product</a></li>
+            <li class="nav-item"><a href="{{ route('add.product') }}" class="nav-link">Add Product</a></li>
+            <li class="nav-item"><a href="{{ route('admin.products') }}" class="nav-link">All Product</a></li>
         </ul>
         <a href="#" class="sl-menu-link">
             <div class="sl-menu-item">
@@ -357,6 +361,24 @@
 <script src="{{asset('/backend/lib/Flot/jquery.flot.pie.j')}}s"></script>
 <script src="{{asset('/backend/lib/Flot/jquery.flot.resize.js')}}"></script>
 <script src="{{asset('/backend/lib/flot-spline/jquery.flot.spline.js')}}"></script>
+
+<script src="{{asset('/backend/lib/medium-editor/medium-editor.js')}}"></script>
+<script src="{{asset('/backend/lib/summernote/summernote-bs4.min.js')}}"></script>
+
+<script>
+    $(function(){
+        'use strict';
+
+        // Inline editor
+        var editor = new MediumEditor('.editable');
+
+        // Summernote editor
+        $('#summernote').summernote({
+            height: 150,
+            tooltip: false
+        })
+    });
+</script>
 
 <script src="{{asset('/backend/js/starlight.js')}}"></script>
 <script src="{{asset('/backend/js/ResizeSensor.js')}}"></script>

@@ -60,5 +60,12 @@ Route::get('admin/newsletters', 'Admin\Newsletter\NewsletterController@newslette
 Route::get('delete/newsletter/{id}', 'Admin\Newsletter\NewsletterController@deleteNewsletter')->name('delete.newsletter');;
 Route::post('admin/store/newsletter', 'Admin\Newsletter\NewsletterController@storeNewsletter')->name('store.newsletter');
 
+//Products
+Route::get('admin/products', 'Admin\Product\ProductController@index')->name('admin.products');
+Route::get('admin/product/add', 'Admin\Product\ProductController@create')->name('add.product');
+
+
+
+//Frontend Routes
 Route::post('subscribe/newsletter', 'Frontend\FrontendController@subscribeNewsletter')->name('subscribe.newsletter');
 

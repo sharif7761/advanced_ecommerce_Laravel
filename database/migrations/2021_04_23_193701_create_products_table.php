@@ -18,11 +18,13 @@ class CreateProductsTable extends Migration
             $table->integer('category_id');
             $table->integer('subcategory_id')->nullable();
             $table->integer('brand_id')->nullable();
+            $table->string('product_name');
             $table->string('product_code');
             $table->string('quantity');
             $table->text('details');
             $table->string('size');
             $table->string('color');
+            $table->string('selling_price');
             $table->string('discount_price')->nullable();
             $table->string('video_link')->nullable();
             $table->integer('main_slider')->nullable();
