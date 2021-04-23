@@ -46,4 +46,27 @@ class CouponController extends Controller
         );
         return back()->with($notification);
     }
+
+    public function editCoupon($id) {
+        $coupon = Coupon::find($id);
+        return view('admin.coupon.edit_coupon', compact('coupon'));
+    }
+
+    public function updateCoupon(Request $request, $id){
+        $validateData = $request->validate([
+            'coupon' => 'required|unique:coupons|max:255',
+            'discount' => 'required'
+        ]);
+
+        $coupon = Coupon::find($id);
+        $coupon->coupon = $request->coupon;
+        $coupon->discount = $request->discount;
+        $coupon->save();
+
+        $notification=array(
+            'messege'=>'Coupon Updated successfully',
+            'alert-type'=>'success'
+        );
+        return redirect()->route('admin.coupons')->with($notification);
+    }
 }

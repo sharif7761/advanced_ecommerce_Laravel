@@ -38,7 +38,7 @@
                             <td>{{ $coupon->coupon }}</td>
                             <td>{{ $coupon->discount }}</td>
                             <td>
-                                <a href="{{ route('edit.brand', $coupon->id) }}" class="btn btn-sm btn-info">Edit</a>
+                                <a href="{{ route('edit.coupon', $coupon->id) }}" class="btn btn-sm btn-info">Edit</a>
                                 <a href="{{ route('delete.coupon', $coupon->id) }}" class="btn btn-sm btn-danger" id="delete">Delete</a>
                             </td>
                         </tr>
