@@ -63,6 +63,7 @@ Route::post('admin/store/newsletter', 'Admin\Newsletter\NewsletterController@sto
 //Products
 Route::get('admin/products', 'Admin\Product\ProductController@index')->name('admin.products');
 Route::get('admin/product/add', 'Admin\Product\ProductController@create')->name('add.product');
+Route::get('get/subcategory/{category_id}', 'Admin\Product\ProductController@getSubcat');
 
 
 
