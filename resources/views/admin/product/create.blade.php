@@ -103,7 +103,79 @@
                                             <label class="form-control-label">Product Details: <span class="tx-danger">*</span></label>
                                             <input class="form-control" id="summernote" name="details">
                                         </div>
+                                    </div><!-- col-12 -->
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Video Link:</label>
+                                            <input class="form-control" type="text" name="video_link" placeholder="Enter Video Link">
+                                        </div>
+                                    </div><!-- col-12 -->
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Image One | Main thumbnail:</label>
+                                            <label class="custom-file">
+                                                <input type="file" id="file" name="image_one" class="custom-file-input">
+                                                <span class="custom-file-control"></span>
+                                            </label>
+                                        </div>
                                     </div><!-- col-4 -->
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Image Two :</label><br>
+                                            <label class="custom-file">
+                                                <input type="file" id="file" name="image_two" class="custom-file-input">
+                                                <span class="custom-file-control"></span>
+                                            </label>
+                                        </div>
+                                    </div><!-- col-4 -->
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Image Three:</label><br>
+                                            <label class="custom-file">
+                                                <input type="file" id="file" name="image_three" class="custom-file-input">
+                                                <span class="custom-file-control"></span>
+                                            </label>
+                                        </div>
+                                    </div><!-- col-4 -->
+                                </div><!-- row -->
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label class="ckbox">
+                                            <input type="checkbox" name="main_slider" value="1">
+                                            <span>Main Slider</span>
+                                        </label>
+                                    </div> <!-- col-4 -->
+                                    <div class="col-lg-4">
+                                        <label class="ckbox">
+                                            <input type="checkbox" name="hot_deal" value="1">
+                                            <span>Hot Deal</span>
+                                        </label>
+                                    </div> <!-- col-4 -->
+                                    <div class="col-lg-4">
+                                        <label class="ckbox">
+                                            <input type="checkbox" name="best_rated" value="1">
+                                            <span>Best Rated</span>
+                                        </label>
+                                    </div> <!-- col-4 -->
+                                    <div class="col-lg-4">
+                                        <label class="ckbox">
+                                            <input type="checkbox" name="trend" value="1">
+                                            <span>Trends</span>
+                                        </label>
+                                    </div> <!-- col-4 -->
+                                    <div class="col-lg-4">
+                                        <label class="ckbox">
+                                            <input type="checkbox" name="mid_slider" value="1">
+                                            <span>Mid Slider</span>
+                                        </label>
+                                    </div> <!-- col-4 -->
+                                    <div class="col-lg-4">
+                                        <label class="ckbox">
+                                            <input type="checkbox" name="hot_new" value="1">
+                                            <span>Hot New</span>
+                                        </label>
+                                    </div> <!-- col-4 -->
                                 </div><!-- row -->
                                 <div class="form-layout-footer">
                                     <button type="submit" class="btn btn-info mg-r-5">Submit Form</button>
