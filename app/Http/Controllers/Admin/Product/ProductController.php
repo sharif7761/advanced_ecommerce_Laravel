@@ -116,4 +116,20 @@ class ProductController extends Controller
         );
         return back()->with($notification);
     }
+
+    public function delete($id) {
+        $product = Product::find($id);
+        $image_one = $product->image_one;
+        $image_two = $product->image_two;
+        $image_three = $product->image_three;
+//        unlink($image_one);
+//        unlink($image_two);
+//        unlink($image_three);
+        $product->delete();
+        $notification=array(
+            'messege'=>'Product deleted successfully',
+            'alert-type'=>'success'
+        );
+        return back()->with($notification);
+    }
 }

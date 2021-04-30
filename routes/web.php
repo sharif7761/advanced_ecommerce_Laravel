@@ -67,6 +67,7 @@ Route::post('admin/product/store', 'Admin\Product\ProductController@store')->nam
 Route::get('get/subcategory/{category_id}', 'Admin\Product\ProductController@getSubcat');
 Route::get('admin/product/active/{id}', 'Admin\Product\ProductController@active')->name('active.product');
 Route::get('admin/product/inactive/{id}', 'Admin\Product\ProductController@inactive')->name('inactive.product');
+Route::get('admin/product/delete/{id}', 'Admin\Product\ProductController@delete')->name('delete.product');
 
 
 //Frontend Routes

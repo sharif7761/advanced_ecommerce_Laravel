@@ -47,8 +47,8 @@
                             <td>{{ $product->status ? 'active' : 'inactive' }}</td>
                             <td>
                                 <a href="{{ route('edit.category', $product->id) }}" class="btn btn-sm btn-info">Edit</a>
-                                <a href="{{ url('delete/category/'.$product->id) }}" class="btn btn-sm btn-danger" id="delete">Delete</a>
-                                <a href="{{ url('delete/category/'.$product->id) }}" class="btn btn-sm btn-danger" id="delete">Show</a>
+                                <a href="{{ route('delete.product', $product->id) }}" class="btn btn-sm btn-danger" id="delete">Delete</a>
+                                <a href="{{ route('delete.product', $product->id) }}" class="btn btn-sm btn-danger" id="delete">Show</a>
                                 @if($product->status === 1)
                                     <a href="{{ route('inactive.product', $product->id) }}" class="btn btn-sm btn-danger" id="inactive">Inactive</a>
                                 @else
