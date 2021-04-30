@@ -21,7 +21,7 @@
             <div class="card pd-20 pd-sm-40">
                 <h6 class="card-body-title">Add Product</h6>
                 <div class="table-wrapper">
-                    <form method="post" action="#">
+                    <form method="post" action="{{ route('store.product') }}">
                         @csrf
                         <div class="card pd-20 pd-sm-40">
                             <div class="form-layout">
@@ -95,7 +95,7 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class="form-control-label">Product Details: <span class="tx-danger">*</span></label>
-                                            <input class="form-control" id="summernote" name="details">
+                                            <textarea class="form-control" id="summernote" name="details"></textarea>
                                         </div>
                                     </div><!-- col-12 -->
                                     <div class="col-lg-12">
