@@ -427,6 +427,26 @@
             });
     });
 </script>
+<script>
+    $(document).on("click", "#inactive", function(e){
+        e.preventDefault();
+        var link = $(this).attr("href");
+        swal({
+            title: "Are you Want to inactive product?",
+            text: "Are you sure to inactive the product",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willInactive) => {
+                if (willInactive) {
+                    window.location.href = link;
+                } else {
+                    swal("Safe Data!");
+                }
+            });
+    });
+</script>
 
 </body>
 </html>

@@ -94,4 +94,26 @@ class ProductController extends Controller
         return back()->with($notification);
 
     }
+
+    public function active($id){
+        $product = Product::find($id);
+        $product->status = 1;
+        $product->save();
+        $notification=array(
+            'messege'=>'Product activated successfully',
+            'alert-type'=>'success'
+        );
+        return back()->with($notification);
+    }
+
+    public function inactive($id){
+        $product = Product::find($id);
+        $product->status = 0;
+        $product->save();
+        $notification=array(
+            'messege'=>'Product inactivated successfully',
+            'alert-type'=>'success'
+        );
+        return back()->with($notification);
+    }
 }

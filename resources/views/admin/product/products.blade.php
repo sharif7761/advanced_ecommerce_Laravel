@@ -5,8 +5,8 @@
     <div class="sl-mainpanel">
         <div class="sl-pagebody">
             <div class="sl-page-title">
-                <label>Category Table</label>
-                <a href="" class="btn btn-sm btn-warning float-right" data-toggle="modal" data-target="#modaldemo3">Add Category</a>
+                <label>Product Table</label>
+                <a href="{{ route('add.product') }}" class="btn btn-sm btn-warning float-right">Add Product</a>
             </div><!-- sl-page-title -->
 
             @if ($errors->any())
@@ -20,7 +20,7 @@
             @endif
 
             <div class="card pd-20 pd-sm-40">
-                <h6 class="card-body-title">Category List</h6>
+                <h6 class="card-body-title">Product List</h6>
                 <div class="table-wrapper">
                     <table id="datatable1" class="table display responsive nowrap">
                         <thead>
@@ -48,6 +48,12 @@
                             <td>
                                 <a href="{{ route('edit.category', $product->id) }}" class="btn btn-sm btn-info">Edit</a>
                                 <a href="{{ url('delete/category/'.$product->id) }}" class="btn btn-sm btn-danger" id="delete">Delete</a>
+                                <a href="{{ url('delete/category/'.$product->id) }}" class="btn btn-sm btn-danger" id="delete">Show</a>
+                                @if($product->status === 1)
+                                    <a href="{{ route('inactive.product', $product->id) }}" class="btn btn-sm btn-danger" id="inactive">Inactive</a>
+                                @else
+                                    <a href="{{ route('active.product', $product->id) }}" class="btn btn-sm btn-info">Active</a>
+                                @endif
                             </td>
                         </tr>
                         @endforeach
@@ -56,4 +62,24 @@
                 </div><!-- table-wrapper -->
             </div><!-- card -->
     <!-- ########## END: MAIN PANEL ########## -->
+            <script>
+                $(document).on("click", "#inactive", function(e){
+                    e.preventDefault();
+                    var link = $(this).attr("href");
+                    swal({
+                        title: "Are you Want to inactive product?",
+                        text: "Are you sure to inactive the product",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                        .then((willInactive) => {
+                            if (willInactive) {
+                                window.location.href = link;
+                            } else {
+                                swal("Safe Data!");
+                            }
+                        });
+                });
+            </script>
 @endsection
