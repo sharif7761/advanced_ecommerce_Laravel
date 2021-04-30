@@ -7,7 +7,9 @@ use App\Models\Admin\Brand;
 use App\Models\Admin\Category;
 use App\Models\Admin\Product;
 use App\Models\Admin\Subcategory;
+use Faker\Provider\Image;
 use Illuminate\Http\Request;
+
 
 class ProductController extends Controller
 {
@@ -59,11 +61,33 @@ class ProductController extends Controller
         $product->trend = $request->trend;
         $product->status = 1;
 
-        $image_one = $request->image_one;
-        $image_two = $request->image_two;
-        $image_three = $request->image_three;
+        $image_one = $request->file('image_one');
+        $image_two = $request->file('image_two');
+        $image_three = $request->file('image_three');
 
-        return response()->json($product);
+        // return response()->json($product);
+        if($image_one && $image_two && $image_three) {
+            $image_one_name = hexdec(uniqid()).'.'.$image_one->getClientOriginalExtension();
+            Image::make($image_one)->resize(300, 300)->save('public/media/product', $image_one_name);
+            $product->image_one = 'public/media/product/'.$image_one_name;
+
+
+            $image_two_name = hexdec(uniqid()).'.'.$image_two->getClientOriginalExtension();
+            Image::make($image_two)->resize(300, 300)->save('public/media/product', $image_two_name);
+            $product->image_two = 'public/media/product/'.$image_two_name;
+
+            $image_three_name = hexdec(uniqid()).'.'.$image_three->getClientOriginalExtension();
+            Image::make($image_three)->resize(300, 300)->save('public/media/product', $image_three_name);
+            $product->image_three = 'public/media/product/'.$image_three_name;
+        }
+
+        $product->save();
+
+        $notification=array(
+            'messege'=>'Product Added successfully',
+            'alert-type'=>'success'
+        );
+        return back()->with($notification);
 
     }
 }

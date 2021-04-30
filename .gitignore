@@ -14,4 +14,6 @@ npm-debug.log
 yarn-error.log
 /public/frontend/images
 /public/media
+composer.phar
+
 
