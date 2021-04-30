@@ -21,7 +21,7 @@
             <div class="card pd-20 pd-sm-40">
                 <h6 class="card-body-title">Add Product</h6>
                 <div class="table-wrapper">
-                    <form method="post" action="{{ route('store.product') }}">
+                    <form method="post" action="{{ route('store.product') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="card pd-20 pd-sm-40">
                             <div class="form-layout">
@@ -41,7 +41,7 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label class="form-control-label">Quantity: <span class="tx-danger">*</span></label>
-                                            <input class="form-control" type="text" name="quantity" placeholder="Enter Quantity">
+                                            <input class="form-control" type="number" name="product_quantity" placeholder="Enter Quantity">
                                         </div>
                                     </div><!-- col-4 -->
                                     <div class="col-lg-4">
