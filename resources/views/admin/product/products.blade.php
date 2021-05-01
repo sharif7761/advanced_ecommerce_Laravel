@@ -46,13 +46,13 @@
                             <td>{{ $product->product_quantity }}</td>
                             <td>{{ $product->status ? 'active' : 'inactive' }}</td>
                             <td>
-                                <a href="{{ route('edit.category', $product->id) }}" class="btn btn-sm btn-info">Edit</a>
+                                <a href="{{ route('edit.category', $product->id) }}" class="btn btn-sm btn-primary">Edit</a>
                                 <a href="{{ route('delete.product', $product->id) }}" class="btn btn-sm btn-danger" id="delete">Delete</a>
-                                <a href="{{ route('delete.product', $product->id) }}" class="btn btn-sm btn-danger" id="delete">Show</a>
+                                <a href="{{ route('show.product', $product->id) }}" class="btn btn-sm btn-info" >Show</a>
                                 @if($product->status === 1)
                                     <a href="{{ route('inactive.product', $product->id) }}" class="btn btn-sm btn-danger" id="inactive">Inactive</a>
                                 @else
-                                    <a href="{{ route('active.product', $product->id) }}" class="btn btn-sm btn-info">Active</a>
+                                    <a href="{{ route('active.product', $product->id) }}" class="btn btn-sm btn-success">Active</a>
                                 @endif
                             </td>
                         </tr>

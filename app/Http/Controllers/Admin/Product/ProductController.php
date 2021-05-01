@@ -66,8 +66,6 @@ class ProductController extends Controller
         $image_two = $request->image_two;
         $image_three = $request->image_three;
 
-
-         return response()->json($product);
 //        if($image_one && $image_two && $image_three) {
 //
 //            $image_one_name = hexdec(uniqid()).'.'.$image_one->getClientOriginalExtension();
@@ -131,5 +129,10 @@ class ProductController extends Controller
             'alert-type'=>'success'
         );
         return back()->with($notification);
+    }
+
+    public function show($id) {
+        $product = Product::find($id);
+        return view('admin.product.show', compact('product'));
     }
 }
