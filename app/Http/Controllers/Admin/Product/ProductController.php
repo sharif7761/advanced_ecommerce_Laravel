@@ -135,4 +135,46 @@ class ProductController extends Controller
         $product = Product::find($id);
         return view('admin.product.show', compact('product'));
     }
+
+    public function edit($id) {
+        $product = Product::find($id);
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
+        $brands = Brand::all();
+        return view('admin.product.edit', compact('product', 'categories', 'brands', 'subcategories'));
+    }
+
+    public function update(Request $request, $id) {
+        $validateData = $request->validate([
+
+        ]);
+
+        $product = Product::find($id);
+        $product->product_name = $request->product_name;
+        $product->product_code = $request->product_code;
+        $product->product_quantity = $request->product_quantity;
+        $product->category_id = $request->category_id;
+        $product->subcategory_id = $request->subcategory_id;
+        $product->brand_id = $request->brand_id;
+        $product->size = $request->size;
+        $product->color = $request->color;
+        $product->details = $request->details;
+        $product->selling_price = $request->selling_price;
+        $product->discount_price = $request->discount_price;
+        $product->video_link = $request->video_link;
+        $product->main_slider = $request->main_slider;
+        $product->mid_slider = $request->mid_slider;
+        $product->hot_deal = $request->hot_deal;
+        $product->best_rated = $request->best_rated;
+        $product->hot_new = $request->hot_new;
+        $product->trend = $request->trend;
+
+        $product->save();
+
+        $notification=array(
+            'messege'=>'Product Updated successfully',
+            'alert-type'=>'success'
+        );
+        return back()->with($notification);
+    }
 }

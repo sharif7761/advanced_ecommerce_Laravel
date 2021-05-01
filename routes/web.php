@@ -69,6 +69,8 @@ Route::get('admin/product/active/{id}', 'Admin\Product\ProductController@active'
 Route::get('admin/product/inactive/{id}', 'Admin\Product\ProductController@inactive')->name('inactive.product');
 Route::get('admin/product/delete/{id}', 'Admin\Product\ProductController@delete')->name('delete.product');
 Route::get('admin/product/show/{id}', 'Admin\Product\ProductController@show')->name('show.product');
+Route::get('admin/product/edit/{id}', 'Admin\Product\ProductController@edit')->name('edit.product');
+Route::post('admin/product/update/{id}', 'Admin\Product\ProductController@update')->name('update.product');
 
 
 //Frontend Routes
