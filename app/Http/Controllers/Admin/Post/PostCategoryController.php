@@ -57,6 +57,14 @@ class PostCategoryController extends Controller
             'alert-type'=>'success'
         );
         return back()->with($notification);
+    }
 
+    public function delete( $id){
+        PostCategory::find($id)->delete();
+        $notification=array(
+            'messege'=>'Post Category deleted successfully',
+            'alert-type'=>'success'
+        );
+        return back()->with($notification);
     }
 }
