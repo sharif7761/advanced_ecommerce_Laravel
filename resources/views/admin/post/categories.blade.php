@@ -38,8 +38,8 @@
                             <td>{{ $category->category_name_en }}</td>
                             <td>{{ $category->category_name_bn }}</td>
                             <td>
-                                <a href="{{ route('edit.category', $category->id) }}" class="btn btn-sm btn-info">Edit</a>
-                                <a href="{{ url('delete/category/'.$category->id) }}" class="btn btn-sm btn-danger" id="delete">Delete</a>
+                                <a href="{{ route('edit.post.category', $category->id) }}" class="btn btn-sm btn-info">Edit</a>
+                                <a href="{{ route('delete.post.category', $category->id) }}" class="btn btn-sm btn-danger" id="delete">Delete</a>
                             </td>
                         </tr>
                         @endforeach

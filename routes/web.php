@@ -75,7 +75,9 @@ Route::post('admin/product/update/{id}', 'Admin\Product\ProductController@update
 //blog
 Route::get('admin/post/category', 'Admin\Post\PostCategoryController@postCategory')->name('post.category');
 Route::post('admin/post/category/store', 'Admin\Post\PostCategoryController@storePostCategory')->name('store.post.category');
-
+Route::get('admin/post/category/edit/{id}', 'Admin\Post\PostCategoryController@edit')->name('edit.post.category');
+Route::post('admin/post/category/update/{id}', 'Admin\Post\PostCategoryController@update')->name('update.post.category');
+Route::get('admin/post/category/delete/{id}', 'Admin\Post\PostCategoryController@delete')->name('delete.post.category');
 //Frontend Routes
 Route::post('subscribe/newsletter', 'Frontend\FrontendController@subscribeNewsletter')->name('subscribe.newsletter');
 

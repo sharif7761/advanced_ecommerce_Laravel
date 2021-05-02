@@ -37,4 +37,26 @@ class PostCategoryController extends Controller
 
     }
 
+    public function edit(Request $request, $id){
+        $post_category = PostCategory::find($id);
+        return view('admin.post.edit_category', compact('post_category'));
+    }
+
+    public function update(Request $request, $id) {
+        $validateData = $request->validate([
+            'category_name_en' => 'required | max:255',
+            'category_name_bn' => 'required | max:255',
+        ]);
+
+        $post_category = PostCategory::find($id);
+        $post_category->category_name_en = $request->category_name_en;
+        $post_category->category_name_bn = $request->category_name_bn;
+        $post_category->save();
+        $notification=array(
+            'messege'=>'Post Category Updated successfully',
+            'alert-type'=>'success'
+        );
+        return back()->with($notification);
+
+    }
 }
