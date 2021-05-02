@@ -275,7 +275,5 @@
                         reader.readAsDataURL(input.files[0]);
                     }
                 }
-
-
             </script>
 @endsection
