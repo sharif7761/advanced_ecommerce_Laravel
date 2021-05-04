@@ -72,12 +72,19 @@ Route::get('admin/product/show/{id}', 'Admin\Product\ProductController@show')->n
 Route::get('admin/product/edit/{id}', 'Admin\Product\ProductController@edit')->name('edit.product');
 Route::post('admin/product/update/{id}', 'Admin\Product\ProductController@update')->name('update.product');
 
-//blog
+//blog category
 Route::get('admin/post/category', 'Admin\Post\PostCategoryController@postCategory')->name('post.category');
 Route::post('admin/post/category/store', 'Admin\Post\PostCategoryController@storePostCategory')->name('store.post.category');
 Route::get('admin/post/category/edit/{id}', 'Admin\Post\PostCategoryController@edit')->name('edit.post.category');
 Route::post('admin/post/category/update/{id}', 'Admin\Post\PostCategoryController@update')->name('update.post.category');
 Route::get('admin/post/category/delete/{id}', 'Admin\Post\PostCategoryController@delete')->name('delete.post.category');
+
+//blog post
+Route::get('admin/post/create', 'Admin\Post\PostController@create')->name('post.create');
+Route::post('admin/post/store', 'Admin\Post\PostController@store')->name('post.store');
+
+
+
 //Frontend Routes
 Route::post('subscribe/newsletter', 'Frontend\FrontendController@subscribeNewsletter')->name('subscribe.newsletter');
 
