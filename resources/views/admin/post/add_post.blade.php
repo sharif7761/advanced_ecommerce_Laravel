@@ -65,7 +65,7 @@
                                         <div class="form-group">
                                             <label class="form-control-label">Post Image:</label>
                                             <label class="custom-file">
-                                                <input type="file" id="file" name="image_one" class="custom-file-input" onchange="readURL1(this)">
+                                                <input type="file" id="file" name="post_image" class="custom-file-input" onchange="readURL1(this)">
                                                 <span class="custom-file-control"></span>
                                                 <br><br>
                                                 <img src="#" id="one" />
