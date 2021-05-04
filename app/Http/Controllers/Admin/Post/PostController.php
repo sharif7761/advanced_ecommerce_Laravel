@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin\Post;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 use App\Models\PostCategory;
+use Illuminate\Http\Request;
 
 
 class PostController extends Controller
@@ -16,5 +18,30 @@ class PostController extends Controller
     public function create() {
         $categories = PostCategory::all();
         return view('admin.post.add_post', compact('categories'));
+    }
+
+    public function store(Request $request) {
+        $validateData = $request->validate([
+            'category_id' => 'required',
+            'post_title_en' => 'required',
+            'post_title_bn' => 'required',
+            'details_en' => 'required',
+            'details_bn' => 'required',
+        ]);
+
+        $post = new Post();
+        $post->category_id = $request->category_id ;
+        $post->post_title_en = $request->post_title_en ;
+        $post->post_title_bn = $request->post_title_bn ;
+        $post->details_en = $request->details_en ;
+        $post->details_bn = $request->details_bn ;
+        $post->post_image = 'image' ;
+        $post->save() ;
+        $notification=array(
+            'messege'=>'Post Added Successfully',
+            'alert-type'=>'success'
+        );
+        return back()->with($notification);
+
     }
 }

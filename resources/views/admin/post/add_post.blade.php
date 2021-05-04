@@ -21,7 +21,7 @@
             <div class="card pd-20 pd-sm-40">
                 <h6 class="card-body-title">Add Product</h6>
                 <div class="table-wrapper">
-                    <form method="post" action="{{ route('store.product') }}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('post.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="card pd-20 pd-sm-40">
                             <div class="form-layout">
