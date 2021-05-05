@@ -73,4 +73,10 @@ class PostController extends Controller
         );
         return back()->with($notification);
     }
+
+    public function edit($id){
+        $post = Post::find($id);
+        $categories = PostCategory::all();
+        return view('admin.post.edit_post', compact('post', 'categories'));
+    }
 }

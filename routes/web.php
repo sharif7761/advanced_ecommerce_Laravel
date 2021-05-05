@@ -84,6 +84,7 @@ Route::get('admin/post/create', 'Admin\Post\PostController@create')->name('post.
 Route::post('admin/post/store', 'Admin\Post\PostController@store')->name('post.store');
 Route::get('admin/post/list', 'Admin\Post\PostController@index')->name('post.list');
 Route::get('admin/post/delete/{id}', 'Admin\Post\PostController@delete')->name('delete.post');
+Route::get('admin/post/edit/{id}', 'Admin\Post\PostController@edit')->name('edit.post');
 
 
 

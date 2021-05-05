@@ -42,7 +42,7 @@
                                 <img src="{{ URL::to($post->post_image) }}" height="40" width="40">
                             </td>
                             <td>
-                                <a href="{{ route('edit.brand', $post->id) }}" class="btn btn-sm btn-info">Edit</a>
+                                <a href="{{ route('edit.post', $post->id) }}" class="btn btn-sm btn-info">Edit</a>
                                 <a href="{{ route('delete.post', $post->id) }}" class="btn btn-sm btn-danger" id="delete">Delete</a>
                             </td>
                         </tr>
