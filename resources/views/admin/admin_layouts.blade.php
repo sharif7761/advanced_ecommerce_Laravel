@@ -110,7 +110,7 @@
         <ul class="sl-menu-sub nav flex-column">
             <li class="nav-item"><a href="{{ route('post.category') }}" class="nav-link">Post Category</a></li>
             <li class="nav-item"><a href="{{ route('post.create') }}" class="nav-link">Add Post</a></li>
-            <li class="nav-item"><a href="{{ route('admin.products') }}" class="nav-link">All Posts</a></li>
+            <li class="nav-item"><a href="{{ route('post.list') }}" class="nav-link">All Posts</a></li>
         </ul>
         <a href="#" class="sl-menu-link">
             <div class="sl-menu-item">

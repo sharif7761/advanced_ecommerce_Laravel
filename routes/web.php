@@ -82,6 +82,7 @@ Route::get('admin/post/category/delete/{id}', 'Admin\Post\PostCategoryController
 //blog post
 Route::get('admin/post/create', 'Admin\Post\PostController@create')->name('post.create');
 Route::post('admin/post/store', 'Admin\Post\PostController@store')->name('post.store');
+Route::get('admin/post/list', 'Admin\Post\PostController@index')->name('post.list');
 
 
 
