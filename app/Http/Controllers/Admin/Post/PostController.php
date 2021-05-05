@@ -61,4 +61,16 @@ class PostController extends Controller
         $posts = Post::all();
         return view('admin.post.posts', compact('posts'));
     }
+
+    public function delete($id){
+        $post = Post::find($id);
+        unlink($post->post_image);
+        $post->delete();
+
+        $notification=array(
+            'messege'=>'Post deleted Successfully',
+            'alert-type'=>'success'
+        );
+        return back()->with($notification);
+    }
 }
