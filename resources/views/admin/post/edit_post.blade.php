@@ -21,7 +21,7 @@
             <div class="card pd-20 pd-sm-40">
                 <h6 class="card-body-title">Add Product</h6>
                 <div class="table-wrapper">
-                    <form method="post" action="{{ route('post.store') }}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('post.update', $post->id) }}" enctype="multipart/form-data">
                         @csrf
                         <div class="card pd-20 pd-sm-40">
                             <div class="form-layout">
@@ -44,7 +44,7 @@
                                             <select name="category_id" class="form-control select2" data-placeholder="Choose Category">
                                                 <option label="Choose Post Category"></option>
                                                     @foreach($categories as $category)
-                                                        <option value="{{ $category->id }}">{{ $category->category_name_en }}</option>
+                                                        <option @if($category->id == $post->category_id) echo selected @endif value="{{ $category->id }}">{{ $category->category_name_en }}</option>
                                                     @endforeach
                                             </select>
                                         </div>
@@ -68,7 +68,7 @@
                                                 <input type="file" id="file" name="post_image" class="custom-file-input" onchange="readURL1(this)">
                                                 <span class="custom-file-control"></span>
                                                 <br><br>
-                                                <img src="{{$post->post_image }}" id="one" />
+                                                <img src="{{asset($post->post_image) }}" id="one" height="70" width="70" />
                                             </label>
                                         </div>
                                     </div><!-- col-4 -->
