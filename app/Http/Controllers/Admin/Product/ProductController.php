@@ -8,7 +8,7 @@ use App\Models\Admin\Category;
 use App\Models\Admin\Product;
 use App\Models\Admin\Subcategory;
 use Illuminate\Http\Request;
-use Image;
+use Intervention\Image\Facades\Image;
 
 
 class ProductController extends Controller
@@ -172,6 +172,35 @@ class ProductController extends Controller
         $product->best_rated = $request->best_rated;
         $product->hot_new = $request->hot_new;
         $product->trend = $request->trend;
+        $product->status = 1;
+
+        $image_one = $request->image_one;
+        $image_two = $request->image_two;
+        $image_three = $request->image_three;
+
+        if($image_one && $image_two && $image_three) {
+            $relPath = 'media/product/';
+            if (!file_exists(public_path($relPath))) {
+                mkdir(public_path($relPath), 777, true);
+            }
+            unlink($product->image_one);
+            unlink($product->image_two);
+            unlink($product->image_three);
+
+            $image_one_name = hexdec(uniqid()).'.'.$image_one->getClientOriginalExtension();
+
+            Image::make($image_one)->resize(300, 300)->save('media/products/'.$image_one_name);
+            $product->image_one = 'media/products/'.$image_one_name;
+
+
+            $image_two_name = hexdec(uniqid()).'.'.$image_two->getClientOriginalExtension();
+            Image::make($image_two)->resize(300, 300)->save('media/products/'.$image_two_name, 80);
+            $product->image_two = 'media/products/'.$image_two_name;
+
+            $image_three_name = hexdec(uniqid()).'.'.$image_three->getClientOriginalExtension();
+            Image::make($image_three)->resize(300, 300)->save('media/products/'.$image_three_name, 80);
+            $product->image_three = 'media/products/'.$image_three_name;
+        }
 
         $product->save();
 

@@ -115,6 +115,39 @@
                                             <input class="form-control" type="text" name="video_link" value="{{ $product->video_link }}" placeholder="Enter Video Link">
                                         </div>
                                     </div><!-- col-12 -->
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Image One | Main thumbnail:</label>
+                                            <label class="custom-file">
+                                                <input type="file" id="file" name="image_one" class="custom-file-input" onchange="readURL1(this)">
+                                                <span class="custom-file-control"></span>
+                                                <br><br>
+                                                <img src="{{asset($product->image_one)}}" id="one" height="50" width="50" />
+                                            </label>
+                                        </div>
+                                    </div><!-- col-4 -->
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Image Two :</label><br>
+                                            <label class="custom-file">
+                                                <input type="file" id="file" name="image_two" class="custom-file-input" onchange="readURL2(this)">
+                                                <span class="custom-file-control"></span>
+                                                <br><br>
+                                                <img src="{{asset($product->image_two)}}" id="two" height="50" width="50" />
+                                            </label>
+                                        </div>
+                                    </div><!-- col-4 -->
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Image Three:</label><br>
+                                            <label class="custom-file">
+                                                <input type="file" id="file" name="image_three" class="custom-file-input"  onchange="readURL3(this)">
+                                                <span class="custom-file-control"></span>
+                                                <br><br>
+                                                <img src="{{asset($product->image_three)}}" id="three" height="50" width="50" />
+                                            </label>
+                                        </div>
+                                    </div><!-- col-4 -->
                                 </div><!-- row -->
                                 <hr>
                                 <div class="row">
@@ -170,39 +203,7 @@
                     <div class="">
                 <div class="table-wrapper">
                     <div class="row">
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label class="form-control-label">Image One | Main thumbnail:</label>
-                                <label class="custom-file">
-                                    <input type="file" id="file" name="image_one" class="custom-file-input" onchange="readURL1(this)">
-                                    <span class="custom-file-control"></span>
-                                    <br><br>
-                                    <img src="#" id="one" />
-                                </label>
-                            </div>
-                        </div><!-- col-4 -->
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label class="form-control-label">Image Two :</label><br>
-                                <label class="custom-file">
-                                    <input type="file" id="file" name="image_two" class="custom-file-input" onchange="readURL2(this)">
-                                    <span class="custom-file-control"></span>
-                                    <br><br>
-                                    <img src="#" id="two" nerror="this.style.display='none'" />
-                                </label>
-                            </div>
-                        </div><!-- col-4 -->
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label class="form-control-label">Image Three:</label><br>
-                                <label class="custom-file">
-                                    <input type="file" id="file" name="image_three" class="custom-file-input" onchange="readURL3(this)">
-                                    <span class="custom-file-control"></span>
-                                    <br><br>
-                                    <img src="#" id="three" />
-                                </label>
-                            </div>
-                        </div><!-- col-4 -->
+
                     </div>
                 </div>
             </div>

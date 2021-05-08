@@ -40,7 +40,7 @@
                         <tr>
                             <td>{{ $product->product_code }}</td>
                             <td>{{ $product->product_name }}</td>
-                            <td>{{ $product->id }}</td>
+                            <td><img src="{{asset($product->image_one)}}" width="50" height="50"></td>
                             <td>{{ $product->category->category_name }}</td>
                             <td>{{ $product->brand->brand_name }}</td>
                             <td>{{ $product->product_quantity }}</td>
