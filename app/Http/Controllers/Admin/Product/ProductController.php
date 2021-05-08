@@ -66,22 +66,26 @@ class ProductController extends Controller
         $image_two = $request->image_two;
         $image_three = $request->image_three;
 
-//        if($image_one && $image_two && $image_three) {
-//
-//            $image_one_name = hexdec(uniqid()).'.'.$image_one->getClientOriginalExtension();
-//
-//            Image::make($image_one)->resize(300, 300)->save('public/media/products/'.$image_one_name);
-//            $product->image_one = 'public/media/products/'.$image_one_name;
-//
-//
-//            $image_two_name = hexdec(uniqid()).'.'.$image_two->getClientOriginalExtension();
-//            Image::make($image_two)->resize(300, 300)->save('public/media/products/'.$image_two_name, 80);
-//            $product->image_two = 'public/media/products/'.$image_two_name;
-//
-//            $image_three_name = hexdec(uniqid()).'.'.$image_three->getClientOriginalExtension();
-//            Image::make($image_three)->resize(300, 300)->save('public/media/products/'.$image_three_name, 80);
-//            $product->image_three = 'public/media/products/'.$image_three_name;
-//        }
+        if($image_one && $image_two && $image_three) {
+            $relPath = 'media/product/';
+            if (!file_exists(public_path($relPath))) {
+                mkdir(public_path($relPath), 777, true);
+            }
+
+            $image_one_name = hexdec(uniqid()).'.'.$image_one->getClientOriginalExtension();
+
+            Image::make($image_one)->resize(300, 300)->save('media/products/'.$image_one_name);
+            $product->image_one = 'media/products/'.$image_one_name;
+
+
+            $image_two_name = hexdec(uniqid()).'.'.$image_two->getClientOriginalExtension();
+            Image::make($image_two)->resize(300, 300)->save('media/products/'.$image_two_name, 80);
+            $product->image_two = 'media/products/'.$image_two_name;
+
+            $image_three_name = hexdec(uniqid()).'.'.$image_three->getClientOriginalExtension();
+            Image::make($image_three)->resize(300, 300)->save('media/products/'.$image_three_name, 80);
+            $product->image_three = 'media/products/'.$image_three_name;
+        }
 
         $product->save();
 
@@ -120,9 +124,9 @@ class ProductController extends Controller
         $image_one = $product->image_one;
         $image_two = $product->image_two;
         $image_three = $product->image_three;
-//        unlink($image_one);
-//        unlink($image_two);
-//        unlink($image_three);
+        unlink($image_one);
+        unlink($image_two);
+        unlink($image_three);
         $product->delete();
         $notification=array(
             'messege'=>'Product deleted successfully',
