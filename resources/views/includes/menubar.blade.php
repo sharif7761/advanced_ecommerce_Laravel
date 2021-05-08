@@ -29,12 +29,9 @@
                                         <span class="custom_dropdown_placeholder clc">All Categories</span>
                                         <i class="fas fa-chevron-down"></i>
                                         <ul class="custom_list clc">
-                                            <li><a class="clc" href="#">All Categories</a></li>
-                                            <li><a class="clc" href="#">Computers</a></li>
-                                            <li><a class="clc" href="#">Laptops</a></li>
-                                            <li><a class="clc" href="#">Cameras</a></li>
-                                            <li><a class="clc" href="#">Hardware</a></li>
-                                            <li><a class="clc" href="#">Smartphones</a></li>
+                                            @foreach($categories as $category)
+                                                <li><a class="clc" href="#">{{ $category->category_name }}</a></li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>
@@ -274,12 +271,16 @@
     <div class="banner_background" style="background-image:url(images/banner_background.jpg)"></div>
     <div class="container fill_height">
         <div class="row fill_height">
-            <div class="banner_product_image"><img src="{{asset('frontend/images/banner_product.png')}}" alt=""></div>
+            <div class="banner_product_image"><img src="{{asset($banner->image_one)}}" alt=""></div>
             <div class="col-lg-5 offset-lg-4 fill_height">
                 <div class="banner_content">
-                    <h1 class="banner_text">new era of smartphones</h1>
-                    <div class="banner_price"><span>$530</span>$460</div>
-                    <div class="banner_product_name">Apple Iphone 6s</div>
+                    <h1 class="banner_text">{{ $banner->product_name }}</h1>
+                    <div class="banner_price">
+                       @if($banner->discount_price) <span>${{ $banner->selling_price }}</span>${{ $banner->discount_price }}$
+                        @else {{ $banner->selling_price }}
+                        @endif
+                    </div>
+                    <div class="banner_product_name">{{ $banner->brand->brand_name }}</div>
                     <div class="button banner_button"><a href="#">Shop Now</a></div>
                 </div>
             </div>

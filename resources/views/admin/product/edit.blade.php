@@ -94,6 +94,13 @@
                                             <input class="form-control" type="text" name="selling_price" value="{{ $product->selling_price }}" placeholder="Enter Selling Price">
                                         </div>
                                     </div><!-- col-4 -->
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Discount Price: </label>
+                                            <input class="form-control" type="text" name="discount_price" value="{{ $product->discount_price }}" placeholder="Enter Discount Price">
+                                        </div>
+                                    </div><!-- col-4 -->
+
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class="form-control-label">Product Details: <span class="tx-danger">*</span></label>
