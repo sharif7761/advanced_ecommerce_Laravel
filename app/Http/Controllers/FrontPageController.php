@@ -14,6 +14,7 @@ class FrontPageController extends Controller
         $featured = Product::where('status', true)->latest()->take(8)->get();
         $trend = Product::where([['status', true],['trend', true]])->latest()->take(8)->get();
         $best_rated = Product::where([['status', true],['best_rated', true]])->latest()->take(8)->get();
-        return view('pages.index',  compact('categories', 'banner', 'featured', 'trend', 'best_rated'));
+        $hot_deal = Product::where([['status', true],['hot_deal', true]])->latest()->take(3)->get();
+        return view('pages.index',  compact('categories', 'banner', 'featured', 'trend', 'best_rated', 'hot_deal'));
     }
 }
