@@ -237,10 +237,14 @@
                                     <div class="featured_slider_item">
                                     <div class="border_active"></div>
                                     <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/featured_1.png" alt=""></div>
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ $featurd_item->image_one }}" height="120" width="140" alt="{{ $featurd_item->product_name }}"></div>
                                         <div class="product_content">
-                                            <div class="product_price discount">$225<span>$300</span></div>
-                                            <div class="product_name"><div><a href="product.html">Huawei MediaPad...</a></div></div>
+                                            @if($featurd_item->discount_price > 0)
+                                                <div class="product_price discount">${{ $featurd_item->discount_price }}<span>${{ $featurd_item->selling_price }}</span></div>
+                                            @else
+                                                <div class="product_price discount">${{ $featurd_item->selling_price }}</div>
+                                            @endif
+                                            <div class="product_name"><div><a href="product.html">{{ $featurd_item->product_name }}</a></div></div>
                                             <div class="product_extras">
                                                 <div class="product_color">
                                                     <input type="radio" checked name="product_color" style="background:#b19c83">
@@ -273,10 +277,14 @@
                                     <div class="featured_slider_item">
                                     <div class="border_active"></div>
                                     <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/featured_1.png" alt=""></div>
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ $trend_item->image_one }}" height="120" width="140" alt="{{ $featurd_item->product_name }}"></div>
                                         <div class="product_content">
-                                            <div class="product_price discount">$225<span>$300</span></div>
-                                            <div class="product_name"><div><a href="product.html">Huawei MediaPad...</a></div></div>
+                                            @if($trend_item->discount_price > 0)
+                                                <div class="product_price discount">${{ $trend_item->discount_price }}<span>${{ $trend_item->selling_price }}</span></div>
+                                            @else
+                                                <div class="product_price discount">${{ $trend_item->selling_price }}</div>
+                                            @endif
+                                            <div class="product_name"><div><a href="product.html">{{ $trend_item->product_name }}</a></div></div>
                                             <div class="product_extras">
                                                 <div class="product_color">
                                                     <input type="radio" checked name="product_color" style="background:#b19c83">
@@ -308,10 +316,14 @@
                                     <div class="featured_slider_item">
                                     <div class="border_active"></div>
                                     <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/featured_1.png" alt=""></div>
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ $best->image_one }}" height="120" width="140" alt="{{ $featurd_item->product_name }}"></div>
                                         <div class="product_content">
-                                            <div class="product_price discount">$225<span>$300</span></div>
-                                            <div class="product_name"><div><a href="product.html">Huawei MediaPad...</a></div></div>
+                                            @if($best->discount_price > 0)
+                                                <div class="product_price discount">${{ $best->discount_price }}<span>${{ $best->selling_price }}</span></div>
+                                            @else
+                                                <div class="product_price discount">${{ $best->selling_price }}</div>
+                                            @endif
+                                            <div class="product_name"><div><a href="product.html">{{ $best->product_name }}</a></div></div>
                                             <div class="product_extras">
                                                 <div class="product_color">
                                                     <input type="radio" checked name="product_color" style="background:#b19c83">
