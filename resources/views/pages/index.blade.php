@@ -257,7 +257,6 @@
                                         <div class="product_fav"><i class="fas fa-heart"></i></div>
                                         <ul class="product_marks">
                                             <li class="product_mark product_discount">{{ $featurd_item->discount_price > 0 ?  discountPercentage($featurd_item->selling_price, $featurd_item->discount_price).'%' : 'new' }}</li>
-                                            <li class="product_mark product_new">new</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -296,8 +295,7 @@
                                         </div>
                                         <div class="product_fav"><i class="fas fa-heart"></i></div>
                                         <ul class="product_marks">
-                                            <li class="product_mark product_discount">-25%</li>
-                                            <li class="product_mark product_new">new</li>
+                                            <li class="product_mark product_discount">{{ $trend_item->discount_price > 0 ?  discountPercentage($trend_item->selling_price, $trend_item->discount_price).'%' : 'new' }}</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -335,8 +333,7 @@
                                         </div>
                                         <div class="product_fav"><i class="fas fa-heart"></i></div>
                                         <ul class="product_marks">
-                                            <li class="product_mark product_discount">-25%</li>
-                                            <li class="product_mark product_new">new</li>
+                                            <li class="product_mark product_discount">{{ $best->discount_price > 0 ?  discountPercentage($best->selling_price, $best->discount_price).'%' : 'new' }}</li>
                                         </ul>
                                     </div>
                                 </div>
